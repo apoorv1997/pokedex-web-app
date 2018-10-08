@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 navbar">
+
+    </div>
+    <div clas="col-12 search-field form-group">
+      <input type="text" class="search input ng-pristine ng-valid ng-touched form-control form-control-lg" placeholder="Search..." (input)="searchPokemon($event.target.value)"/>
+    </div>
+    <div class="col-12 pokemon-body">
+      <div class="card-media shadow p-3 mb-4 bg-white rounded" *ngFor="let pokemon of dashData" (click)="openModal(template)">
+          <p class="pokemon-id">#{{pokemon.id}}</p>
+          <img src="../assets/pokemon/{{pokemon.id}}.png" class="pokemon-pic rounded mx-auto d-block">
+          <p class="name">{{pokemon.name}}</p>
+          <ng-template #template>
+            <div class="modal-header detail-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body detail-body">
+              <div class="row">
+              <div class="detail-pic col-4">
+                  <img src="../assets/pokemon/{{pokemon.id}}.png" style="height:200px;width:200px;">
+              </div>
+               <div class="details col-8">
+                  <h2 class="pokemon-detail d-flex justify-content-start"><strong>{{pokemon.name}} #{{pokemon.id}}</strong></h2>
+                  <div class="type" [ngClass]="type" *ngFor="let type of pokemon.types">{{type}} </div>
+                  <p class="height"><strong>Height:-</strong> {{pokemon.height/10}} m  <strong>Weight:-</strong> {{pokemon.weight/10}} kg</p>
+                  <p class="description">{{pokemon.description}}</p>
+               </div> 
+              </div>
+            </div>
+          </ng-template>
+      </div>
+    </div>
+    <div class="col-12 footer">
+      Pokedex Web-app built using Angular. Dataset provided by <a href="https://coryrylan.com/">Cory Rylan</a> All content is ©Nintendo, Game Freak, and The Pokémon Company. 
+    </div>
+  </div>
+ 
+</div>
