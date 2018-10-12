@@ -6,6 +6,6 @@ export const environment = {
     databaseURL: "https://pokedex-3e060.firebaseio.com",
     projectId: "pokedex-3e060",
     storageBucket: "pokedex-3e060.appspot.com",
-    messagingSenderId: "426735920965"
+    messagingSenderId: "426735920965"  
   }
 };
